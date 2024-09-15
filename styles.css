@@ -1,0 +1,873 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+    background: linear-gradient(135deg, #eef1f5, #f8feff); /* Background gradient */
+    color: #333;
+    width: 80px; /* Narrower width to match the design */
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    padding: 100px 0; /* Add some padding for better spacing */
+    border-radius: 10px; /* Rounded corners for the sidebar */
+    transform: scale(0.9);
+}
+
+.sidebar .menu-icon {
+    font-size: 30px; /* Larger icon size */
+    margin-bottom: 10px; /* Space below the menu icon */
+    cursor: pointer;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding:10px;
+    width: 100%;
+    text-align: center; /* Center the text and icons */
+}
+
+.sidebar ul li {
+    margin: 30px 0; /* Space between each list item */
+}
+
+/* Sidebar Links - Normal State */
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333; /* Default icon color */
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Sidebar Links - Active State */
+.sidebar ul li a.active i {
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Makes the icon itself transparent */
+    background-clip: text;
+    text-emphasis-color: transparent;
+}
+
+.sidebar ul li a i {
+    font-size: 20px; /* Increase icon size */
+    margin-bottom: 5px; /* Add spacing below the icon */
+}
+
+/* Main Container */
+.main-container {
+    padding:15px;
+    width: 500px;
+    height: 630px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    position: relative;
+    transform: scale(1);
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+}
+
+/* Profile Card */
+.profile-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.profile-card img {
+    max-width: 100%;
+    border-radius:10px;
+}
+
+.profile-card h2 {
+    font-size: 1.5em;
+    margin-top: 15px;
+}
+
+.profile-card p {
+    font-size: 1em;
+    color: #555;
+    margin: 10px 0;
+}
+
+.icons {
+    margin: 10px 0;
+}
+
+.icons a {
+    text-decoration: none;
+    color: #555;
+    margin: 0 5px;
+    font-size: 1.2em;
+}
+
+.buttons {
+    display: flex;
+    justify-content:space-around;
+    margin-top: 15px;
+}
+
+.buttons button {
+    padding: 10px 15px;
+    border: black;
+    background: linear-gradient(135deg, #eef1f5, #f8feff);
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #00d2ff;
+}
+
+/* Third container for displaying content */
+.third-container {
+    width: 800px;
+    height: 600px; /* Same as earlier for consistency */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-y: auto;
+    display: none; /* Initially hidden */
+    max-height: none;
+}
+
+/* Active content section */
+.third-container .content {
+    display: none; /* Hide all sections by default */
+}
+
+.third-container .content.active {
+    display: block; /* Show the active section */
+}
+
+/* Style for the content within the third container */
+.third-container .content h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Makes the icon itself transparent */
+    background-clip: text;
+    text-emphasis-color: transparent;
+
+}
+
+.third-container .content p {
+    width: 100%;
+    font-size: 1em;
+    color: #555;
+    line-height: 2.3; /* Adjust line spacing */
+    text-align: justify; /* Justify the text */
+    word-spacing: 0.05em; /* Adjust word spacing */
+
+    
+}
+
+/* Layout for Resume Content */
+.resume-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    
+}
+
+.experience, .education {
+    width: 100%;
+}
+
+h3 {
+    font-size: 20px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    display: inline-block;
+    background: linear-gradient(135deg, #eef0ed, #d6edf3);
+    border-radius: 5px;
+}
+
+h3 i {
+    margin-right: 10px;
+    font-size: 30px;
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Makes the icon itself transparent */
+    background-clip: text;
+    text-emphasis-color: transparent;
+}
+
+/* Job and Education Entries */
+.job, .school {
+    margin-bottom: 20px;
+}
+
+.date {
+    background-color: #e1e3e0;
+    color: #333;
+    padding: 2px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+h4 {
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+}
+p {
+    color: #777;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Divider Lines */
+.divider {
+    border: none;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 10px 0 20px 0;
+}
+
+h5 {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+ul.custom-dots {
+    list-style: none;
+    padding-left: 20px;
+  }
+  
+  ul.custom-dots li::before {
+    content: "•"; /* Bullet symbol */
+    color: #777; /* Bullet color */
+    font-size: 20px; /* Bullet size */
+    padding-right: 10px;
+  }
+
+.custom-dots{
+    color:#777;
+    line-height: 1.8;
+}
+
+/* Skills Section Container */
+#skills-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Coding and Knowledge Layout */
+.coding-knowledge-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+}
+
+.coding-skills{
+    width: 40%;
+}
+
+.knowledge-skills {
+    width: 40%;
+    margin-left: 10px;
+}
+
+/* Knowledge Section */
+.knowledge-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.knowledge-list li {
+    font-size: 16px;
+    color:#777;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    line-height: 1.8;
+}
+
+.knowledge-list li i {
+    color: #57c074;
+    margin-right: 10px;
+}
+
+/* Coding Items (Circular Progress) */
+.coding-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 15px;
+    width:100%;
+}
+
+.coding-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.coding-item p {
+    font-size: 0.95em;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* Circular Progress Styles */
+.circle {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.percent {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.percent svg {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.percent svg circle {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke-width: 8;
+    stroke: #f3f3f3;
+    transform: translate(5px, 5px);
+    stroke-dasharray: 251;
+    stroke-dashoffset: 0;
+}
+
+.percent svg circle {
+    stroke-dasharray: 251; /* Total length of the circle's path */
+    stroke-dashoffset: 251; /* Initially, the entire circle is hidden */
+    transition: stroke-dashoffset 0.5s ease; /* Smooth transition effect */
+    stroke: #3a7bd5; /* The color of the filled portion */
+}
+
+
+.num {
+    position: absolute;
+    font-size: 0.8em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Skills Section Styles */
+#skills-section {
+    background-color: #fff;
+    padding: 0px;
+    border-radius: 10px;
+}
+
+#skills-section .skills-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+#skills-section .skills-design{
+    width: 40%;
+    margin-left: 10px;
+}
+#skills-section .skills-languages {
+    width: 40%;
+}
+
+#skills-section h3 {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    color: #444;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(135deg, #eef0ed, #d6edf3);
+    border-radius: 5px;
+}
+
+/* Skill Item */
+#skills-section .skill-item {
+    margin-bottom: 20px;
+}
+
+#skills-section .skill-bar {
+    background-color: #e5e5e5;
+    border-radius: 10px;
+    height: 8px;
+    width: 100%;
+    margin-top: 5px;
+    position: relative;
+}
+
+#skills-section .skill-level {
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+    border-radius: 10px;
+    height: 8px;
+    width: 0;
+    position: absolute;
+}
+
+#skills-section .skill-level {
+    width: 80%; /* Modify percentage based on skill level */
+}
+
+/* Language Item */
+#skills-section .language-item {
+    margin-bottom: 20px;
+}
+
+#skills-section .language-level {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#skills-section .fas.fa-star {
+    font-size: 24px;
+    color: #e5e5e5;
+  }
+
+#skills-section .fas.fa-star.filled {
+    background: linear-gradient(135deg, #d4e518, #e1ff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Makes the icon itself transparent */
+    background-clip: text;
+    text-emphasis-color: transparent;
+}
+
+#skills-section p {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+h6 {
+    font-size: 20px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h6 i {
+    margin-right: 10px;
+    font-size: 20px;
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Makes the icon itself transparent */
+    background-clip: text;
+    text-emphasis-color: transparent;
+}
+
+/* Work Section */
+/* Container for the heading and tabs */
+.header-tabs-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+.section-heading {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+/* Style for tabs */
+.tabs {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .tab-button {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 100px;
+  }
+  
+  .tab-button.active {
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+    color: white;
+  }
+  
+  
+/* Project Section: Project Content Layout */
+.projects-content .project {
+    margin-top: 30px;
+  }
+  
+  .project h3 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .project-details {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .image-placeholder {
+    width: 1000px;;
+    height: 180px;
+    background-color: #ccc;
+    margin-right: 20px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  
+  .image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the box while maintaining aspect ratio */
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  
+  .description {
+    flex-grow: 1;
+    margin-top: 10px;
+    text-align: justify;
+  }
+
+
+/* details Section: details Grid Layout for image */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px;
+  }
+  
+  .image-item {
+    position: relative;
+    padding-bottom: 50%; /* 16:9 ratio */
+    height: 0;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+    border-radius: 10px;
+    
+  }
+  
+  .image-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .image-item:hover {
+    transform: scale(1.05);
+  }
+
+  .highlight {
+    color: #666; /* Change to your desired color */
+    font-weight: bold; /* Change to your desired font-weight */
+    }
+
+  .example-list{
+    margin-left: 90px;
+    margin-top: -30px;
+  }
+
+  .example-list i{
+    color: #d4e518;
+    background-color: #333;
+    border-radius: 50%;
+    padding: 0px; /* Adjust padding to fit your design */
+    margin-right: 10px; /* Space between the icon and text */
+    font-size: 20px; /* Adjust font size if needed */
+  }
+ 
+
+  .emotion-text{
+    color: #777;
+    font-size: 14px;
+    margin: 5px 0; 
+  }
+
+/* details Section: details Grid Layout for Video */
+.list-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+  grid-column-gap: 50px;
+  grid-row-gap: 30px;
+  margin-top: 15px;
+}
+
+.vid-list .thumbnail{
+  width: 100%;
+  border-radius: 5px;
+}
+
+.vid-list .thumbnail1{
+  width: 100%;
+  height: 115%;
+  border-radius: 5px;
+}
+
+.vid-info{
+  color: #5a5a5a;
+  font-size: 13px;
+}
+.vid-info a{
+  color: #000;
+  font-weight: bold;
+  display: block;
+  margin-top: 0px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+  
+
+/*---------------Certification  Section--------------------*/        
+/* Layout for certificate Content */
+.blog-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.certificates-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px;
+  }
+  .section-title {
+    font-size: 23px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    display: inline-block;
+    background: linear-gradient(135deg, #eef0ed, #d6edf3);
+    border-radius: 5px;
+  }
+  .certificates-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+  }
+
+  .certificate-item {
+    position: relative;
+    width: 350px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .certificate-item img {
+    max-width: 100%;
+    height: 70%;
+    cursor: pointer;
+  }
+  .certificate-item .certificate-info {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .certificate-item button {
+    display: block;
+    margin: 10px auto;
+    padding: 5px 10px;
+    background-color: #ebeef0;
+    background: linear-gradient(135deg, #eef0ed, #d6edf3);
+    color: #333;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+/* ------------------Contact Section ----------------------*/
+
+/*Feedback Section*/
+.contact-form {
+  width: 100%;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background:linear-gradient(135deg, #3a7bd5, #00d2ff);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+.contact-form h8 {
+  background:linear-gradient(135deg, #eef0ed, #d6edf3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Makes the icon itself transparent */
+  background-clip: text;
+  text-emphasis-color: transparent;
+  font-size: 1.5rem;
+  margin-bottom: 50px;
+  font-weight: bold;
+}
+.form-group {
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: #333;
+}
+.form-group textarea {
+  height: 100px;
+}
+.send-btn {
+  width: 25%;
+  padding: 10px;
+  background:linear-gradient(135deg, #8b8c8a, #e6f1f3); /* Disabled button color */
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  color: white;
+  cursor: not-allowed;
+}
+.send-btn.enabled {
+  background:linear-gradient(135deg, #0d0d0d, #939899);
+  cursor: pointer;
+}
+.send-btn:hover.enabled {
+  background-color: #0b0b0b;
+}
+.message-sent {
+  display: none;
+  background:linear-gradient(135deg, #eef0ed, #d6edf3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Makes the icon itself transparent */
+  background-clip: text;
+  text-emphasis-color: transparent;
+  margin-top: 10px;
+}
+
+/*Map section*/
+#map {
+  height: 400px;
+  width: 100%;
+  margin-top: 15px;
+  }
+  
+.contact-section h7{
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #eef0ed, #d6edf3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Makes the icon itself transparent */
+  background-clip: text;
+  text-emphasis-color: transparent;
+  font-weight: bold;
+}
+
+.contact-section {
+  padding: 20px;
+  background:linear-gradient(135deg, #3a7bd5, #00d2ff);
+  text-align: center;
+  border-radius: 10px;
+}
+
+
+.contact-info {
+  margin: 20px;
+  padding: 10px;
+  background-color: #eaeaea;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.contact-info div {
+  padding: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.map-loading {
+  text-align: center;
+  color: gray;
+  border-radius: 10px;
+}
+
+ /* Modal for Image and Video Preview */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+  }
+  
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
