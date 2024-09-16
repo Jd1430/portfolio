@@ -1,10 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
   const links = document.querySelectorAll('.sidebar ul li a');
-  const menuIcon = document.querySelector('.menu-icon');
-  
+  const mainContainer = document.querySelector('.main-container');
+
+  // Set the home section as active initially when the page loads on smaller screens
+  if (window.innerWidth <= 600) {
+      // Ensure the main container is visible by default for home section
+      mainContainer.style.display = 'block';
+      document.getElementById('home-link').classList.add('active');
+  }
+
   links.forEach(link => {
       link.addEventListener('click', (e) => {
-          e.preventDefault(); // Prevent the default link behavior
+          // Handle the Home link separately
+          if (link.id === 'home-link') {
+              // Remove the 'active' class from all the links
+              links.forEach(l => l.classList.remove('active'));
+
+              // Add 'active' class to Home link
+              link.classList.add('active');
+
+              // Show the main container when clicking Home
+              if (window.innerWidth <= 600) {
+                  mainContainer.style.display = 'block';
+              }
+
+              return; // Skip the preventDefault for Home
+          }
+
+          // Prevent the default link behavior for other links
+          e.preventDefault();
 
           // Remove the 'active' class from all the links
           links.forEach(l => l.classList.remove('active'));
@@ -15,14 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
           // Get the section ID from the link's id attribute (like 'about-link')
           const sectionId = link.id.replace('-link', '');
 
+          // Hide the main container when not in Home section on smaller screens
+          if (window.innerWidth <= 600) {
+              mainContainer.style.display = 'none';
+          }
+
           // Activate the section
           activateSection(sectionId);
       });
-  });
-
-  // Add event listener to the menu icon
-  menuIcon.addEventListener('click', () => {
-      resetToInitialState();
   });
 });
 

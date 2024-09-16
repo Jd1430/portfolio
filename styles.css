@@ -871,3 +871,82 @@ h6 i {
     font-weight: bold;
     cursor: pointer;
   }
+
+/* Responsive Styles */
+
+/* Tablet/Desktop mode */
+@media (max-width: 1024px) {
+  .container {
+      flex-direction: row;
+      flex-wrap: wrap;
+  }
+
+  .third-content {
+      flex-basis: 100%;
+      margin: 20px 0 0 0; /* Moves the third container below main */
+
+  }
+}
+
+/* Mobile Screen */
+@media (max-width: 600px) {
+  /* Mobile view: Sidebar on top, containers stacked vertically */
+  body {
+    display: block;
+    padding-top: 80px; /* Add space for sidebar on top */
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.sidebar ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar ul li {
+    margin: 0 15px;
+}
+
+.sidebar ul li a {
+  flex-direction: column; /* Stack icon and text vertically */
+  align-items: center; /* Align icon and text to the center */
+  font-size: 12px;
+}
+
+.main-container {
+  margin-top: 20px;
+  width: 100%;
+  display: block; /* Hide the main container initially on smaller screens */
+}
+
+.third-container {
+  width: 95%;
+  margin-left: 10px;
+  display: none; /* Hide third container until an icon is clicked */
+  margin: 20px;
+}
+
+.third-container.active {
+  display: block; /* Show the third container when active */
+}
+
+/* Show main container when the home icon is clicked */
+.main-container.active {
+  display: block;
+}
+
+/* Hide the main container when another section is active */
+.main-container.initial {
+  display: block; /* Show main container initially */
+}
+}
