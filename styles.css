@@ -640,7 +640,7 @@ h6 i {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
   grid-column-gap: 50px;
-  grid-row-gap: 30px;
+  grid-row-gap: 40px;
   margin-top: 15px;
 }
 
@@ -949,4 +949,63 @@ h6 i {
 .main-container.initial {
   display: block; /* Show main container initially */
 }
+
+.project-details {
+  display: flex;
+  flex-direction: column; /* Stack the image and description vertically */
+  align-items: center; /* Center align the content horizontally */
+  margin-bottom: 20px;
+}
+
+.image-placeholder {
+  width: 300px; /* Adjust size according to your layout */
+  height: 180px;
+  background-color: #ccc;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  margin-top: 10px;
+  }
+  
+  .image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the box while maintaining aspect ratio */
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  
+  .description {
+    margin-top: 10px;
+    text-align: justify;
+    max-width: 300px; /* Match the width of the image */
+  }
+
+  .description h6{
+    text-align:left;
+  }
+
+  .send-btn {
+    width: 50%;
+    padding: 5px;
+    background:linear-gradient(135deg, #8b8c8a, #e6f1f3); /* Disabled button color */
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    color: white;
+    cursor: not-allowed;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column; /* Stack items in a column */
+  }
+  
+  .contact-info div {
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
 }
