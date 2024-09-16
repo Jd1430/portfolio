@@ -1001,6 +1001,8 @@ h6 i {
   .contact-info {
     display: flex;
     flex-direction: column; /* Stack items in a column */
+    width:100%;
+    margin-left:0px;
   }
   
   .contact-info div {
